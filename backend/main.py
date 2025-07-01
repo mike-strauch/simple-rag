@@ -1,9 +1,13 @@
 # backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.routes import search
+from api.routes import search, documents
+from services.llm_service import LLMService
 from services.search_service import SearchService
 
+
+search_service = SearchService()
+llm_service = LLMService()
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -12,9 +16,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.include_router(search.router)
 
-pinecone_service = SearchService()
+document_router = documents.init_document_routes([])
+search_router = search.init_search_routes(llm_service, search_service)
+app.include_router(search_router)
+app.include_router(document_router)
 
 @app.get("/api/hello")
 def read_root():

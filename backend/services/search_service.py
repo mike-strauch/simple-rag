@@ -1,7 +1,10 @@
 
 from pinecone import Pinecone
 from core.config import settings
+from schemas.search import Search
 
+
+# TODO: maybe rename eventually
 class SearchService:
     def __init__(self):
         self.pinecone_client = Pinecone(api_key=settings.pinecone_api_key, environment=settings.pinecone_environment)
@@ -27,7 +30,7 @@ class SearchService:
 
         self.pinecone_index.upsert(vectors)
 
-    def find_similar_documents(self, prompt: str):
+    def find_similar_documents(self, search: Search):
         return
 
     def _generate_embeddings(self, content_chunks: str, document_id: str):
