@@ -17,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-document_router = documents.init_document_routes([])
+document_router = documents.init_document_routes(search_service)
 search_router = search.init_search_routes(llm_service, search_service)
 app.include_router(search_router)
 app.include_router(document_router)

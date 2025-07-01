@@ -17,7 +17,7 @@ def init_search_routes(llm_service: LLMService, search_service: SearchService):
             return {'success': True, 'message': 'No relevant documents found'}
 
         #TODO: need to convert document objects to strings?
-        response = llm_service.generate_response(search.promp, similar_documents)
+        response = llm_service.generate_response(search.prompt, similar_documents)
         return {'success': True, 'message': response}
 
     return router
