@@ -12,12 +12,12 @@ class LLMService:
 
 
     def generate_response(self, prompt: str, relevant_snippets: list[str]):
-        indexed_docs = [f"Document {i}: {snippet}\n" for i, snippet in enumerate(relevant_snippets)]
+        indexed_docs = [f"Document {i}:\n {snippet}\n\n" for i, snippet in enumerate(relevant_snippets)]
         combined_docs = "".join(indexed_docs)
-        prompt_with_docs = combined_docs.join(prompt)
+        prompt_with_docs = combined_docs + '\n' + prompt
 
         messages: list[ChatCompletionMessageParam] = cast(list[ChatCompletionMessageParam], [
-            {"role": "system", "content": "Answer the prompt using the provided documents"},
+            {"role": "system", "content": "Answer the prompt using the provided documents as source material but don't reference the fact that the documents exist just use them as guiding information"},
             {"role": "user", "content": prompt_with_docs}
         ])
 
@@ -25,3 +25,5 @@ class LLMService:
             model="gpt-4",
             messages=messages
         )
+
+        return response.choices[0].message.content

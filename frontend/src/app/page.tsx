@@ -3,11 +3,12 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useAddDocument } from "@/hooks/Document.hooks";
 import { useSubmitPrompt } from "@/hooks/Search.hooks";
 import { CgSpinner } from "react-icons/cg";
-import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [documentContent, setDocumentContent] = useState<string>('');
   const [prompt, setPrompt] = useState<string>('');
+  const [conversation, setConversation] = useState<Conversation>(new Conversation({}));
 
   const [isAddingDocument, addDocument] = useAddDocument();
   const [isSubmittingPrompt, submitPrompt] = useSubmitPrompt();
@@ -24,14 +25,22 @@ export default function Home() {
   }, [addDocument, documentContent]);
 
   const handleSubmitPrompt = useCallback(async () => {
-    await submitPrompt(prompt);
+    const promptResult = await submitPrompt(prompt);
+    if(promptResult) {
+      setConversation(prevConversation => {
+        const newConversation = new Conversation(prevConversation);
+        newConversation.addMessage(prompt, promptResult);
+        return newConversation;
+      })
+    }
     setPrompt('');
   },[prompt, submitPrompt]);
 
   return (
-    <main className="size-full">
-      <form noValidate autoComplete="off" className="size-full p-12">
-        <fieldset className="flex size-full flex-col items-center justify-center gap-4">
+    <main className="py-10 size-full flex flex-col gap-12">
+      <ConversationView conversation={conversation}/>
+      <form noValidate autoComplete="off" className="w-full px-12">
+        <fieldset className="flex w-full flex-col items-center justify-center gap-24">
           <div className="flex h-[30%] w-[60%] flex-col gap-2">
             <div className="w-full flex justify-between">
               <label htmlFor="promptText">Enter Prompt</label>
@@ -41,7 +50,7 @@ export default function Home() {
               <ActionButton
                 type="button"
                 onClick={handleSubmitPrompt}
-                label="Find Documents"
+                label="Submit"
               />
             </div>
             <textarea
@@ -77,6 +86,36 @@ export default function Home() {
   );
 }
 
+const ConversationView = ({conversation}:{conversation: Conversation}) => {
+  return (
+    <div className="w-full flex flex-col items-center">
+      {conversation.hasMessages() && (
+        <div className="w-[60%] flex flex-col gap-10 items-center justify-center px-12 divide-y-1 divide-gray-500">
+          {conversation.getOrderedMessages().map(message =>
+            <motion.div
+              key={message.id}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full flex flex-col gap-4"
+            >
+              <div className="ml-auto text-sm text-gray-400">{new Date(message.created).toLocaleString()}</div>
+              <div className="p-2 ml-auto max-w-[50%] bg-purple-800 text-white rounded-md">
+                {message.prompt}
+              </div>
+              <div className="p-2 mr-auto max-w-[60%] bg-gray-700 text-white rounded-md">
+                {message.response}
+              </div>
+            </motion.div>
+          )
+          }
+        </div>
+      )}
+    </div>
+  );
+}
+
 const ActionButton = ({label = "Submit", type ="button", ...rest}: {label: string} & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return <button
     type={type}
@@ -85,4 +124,38 @@ const ActionButton = ({label = "Submit", type ="button", ...rest}: {label: strin
   >
     {label}
   </button>
+}
+
+class Conversation {
+  messages: Message[];
+
+  constructor(props:Partial<Conversation>) {
+    this.messages = props.messages ? props.messages.map(message => new Message(message)) : [];
+  }
+
+  addMessage(prompt: string, response: string) {
+    this.messages.push(new Message({prompt, response}));
+  }
+
+  hasMessages(): boolean {
+    return this.messages?.length > 0;
+  }
+
+  getOrderedMessages() {
+    return this.messages?.sort((a, b) => a.created - b.created) || [];
+  }
+}
+
+class Message {
+  id: number;
+  created: number;
+  prompt: string;
+  response: string;
+
+  constructor(props: Partial<Message>) {
+    this.id = props.id || new Date().getTime();
+    this.created = props.created || new Date().getTime();
+    this.prompt = props.prompt || '';
+    this.response = props.response || '';
+  }
 }

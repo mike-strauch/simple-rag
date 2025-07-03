@@ -15,7 +15,13 @@ export const useAddDocument = (): [boolean, ((document: string) => Promise<void>
       const response = await axios.post('http://localhost:8000/api/documents', {
         content: documentData
       });
+
       setLoading(false);
+      if(!response.data.success) {
+        toast.error(response.data.message);
+        return null;
+      }
+
       toast.success('Document Added!');
       return response.data;
     }

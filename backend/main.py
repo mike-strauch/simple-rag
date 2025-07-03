@@ -21,7 +21,3 @@ document_router = documents.init_document_routes(search_service)
 search_router = search.init_search_routes(llm_service, search_service)
 app.include_router(search_router)
 app.include_router(document_router)
-
-@app.get("/api/hello")
-def read_root():
-    return {"message": "Hello from FastAPI!"}
