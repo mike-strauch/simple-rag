@@ -1,6 +1,34 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from 'axios';
 import {toast} from 'react-toastify';
+
+export const useDocuments = (): [boolean, []] => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [documents, setDocuments] = useState<[]>([]);
+
+  useEffect(() => {
+    const loadDocuments = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('http://localhost:8000/api/documents');
+
+        setLoading(false);
+        if (!response.data.success) {
+          toast.error(response.data.message);
+          return null;
+        }
+
+        setDocuments(response.data.documents);
+      } catch (e) {
+        setLoading(false);
+        toast.error('Unable to add document: ' + (e as Error).message);
+      }
+    }
+    loadDocuments().then(() => {});
+  },[]);
+
+  return [loading, documents];
+}
 
 export const useAddDocument = (): [boolean, ((document: string) => Promise<void>)] => {
   const [loading, setLoading] = useState<boolean>(false);

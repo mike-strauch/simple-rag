@@ -17,7 +17,7 @@ class LLMService:
         prompt_with_docs = combined_docs + '\n' + prompt
 
         messages: list[ChatCompletionMessageParam] = cast(list[ChatCompletionMessageParam], [
-            {"role": "system", "content": "Answer the prompt using the provided documents as source material but don't reference the fact that the documents exist just use them as guiding information"},
+            {"role": "system", "content": "Answer the prompt using the provided documents as source material but don't reference the fact that the documents exist just use them as guiding information. If the documents do not contain information to help answer the user prompt then indicate that"},
             {"role": "user", "content": prompt_with_docs}
         ])
 

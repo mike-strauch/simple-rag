@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import {Geist, Geist_Mono, Roboto} from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import React from "react";
+import LeftNav from "@/app/LeftNav";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={roboto.variable}>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} overflow-hidden`}>
         <ToastContainer
           position="bottom-center"
           autoClose={5000}
@@ -40,7 +43,13 @@ export default function RootLayout({
           newestOnTop={true}
           closeOnClick={true}
         />
-        {children}
+        <main className="grid size-full grid-cols-[auto_1fr] py-10 overflow-hidden divide-x divide-x-gray-300">
+          <div className="py-6 flex min-w-40 flex-col items-center gap-6 border-y border-y-gray-300">
+            <h1 className="text-xl underline"><Link href="/" className="hover:text-purple-200">SimpleRAG</Link></h1>
+            <LeftNav/>
+          </div>
+          {children}
+        </main>
       </body>
     </html>
   );

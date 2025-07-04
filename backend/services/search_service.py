@@ -6,6 +6,10 @@ from transformers import AutoTokenizer
 import random
 
 EMBEDDING_MODEL = "llama-text-embed-v2"
+MODEL_DIMENSONS = 1024
+
+# so we're not hitting pinecone all the time to get document list
+document_cache = []
 
 # TODO: maybe rename eventually
 class SearchService:
@@ -34,6 +38,21 @@ class SearchService:
         ]
 
         self.index.upsert(vectors)
+        global document_cache
+        document_cache = []
+
+    def get_documents(self):
+        global document_cache
+        if document_cache:
+            return document_cache
+
+        results = self.index.query(
+            vector=[0.0] * MODEL_DIMENSONS,
+            top_k=100
+        )
+
+        document_cache = [match.id for match in results.matches]
+        return document_cache
 
 
     def find_similar_documents(self, search: Search):

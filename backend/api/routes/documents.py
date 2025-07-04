@@ -6,9 +6,13 @@ import random
 router = APIRouter(prefix="/api/documents", tags=["Documents"])
 
 def init_document_routes(search_service: SearchService):
-    @router.get('/')
+    @router.get('/:id')
     def get_document():
         return {'doc': 'some doc'}
+
+    @router.get('/')
+    def get_documents():
+        return {'success': True, 'documents': search_service.get_documents()}
 
     @router.post('/')
     def add_document(document: Document):
