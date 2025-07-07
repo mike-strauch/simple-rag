@@ -59,9 +59,9 @@ export default function Converse() {
               id="promptText"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              className="min-h-24 rounded-md border-0 p-2 focus:outline-1 focus:outline-gray-400"
+              className="min-h-24 border rounded-b-md bg-gray-900 border-gray-500 p-2 focus:outline-1 focus:outline-gray-400 boxy-purple-shadow"
             ></textarea>
-            <div className="text-center text-gray-400">Type above to query your stored documents for relevant information.</div>
+            <div className="pt-2 text-center text-gray-400 text-lg">Type above to query your stored documents for relevant information.</div>
           </div>
         </fieldset>
       </form>

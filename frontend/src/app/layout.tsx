@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={roboto.variable}>
-      <body className={`${geistSans.variable} ${geistMono.variable} overflow-hidden`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} overflow-hidden h-screen`}>
         <ToastContainer
           position="bottom-center"
           autoClose={5000}
@@ -43,8 +43,8 @@ export default function RootLayout({
           newestOnTop={true}
           closeOnClick={true}
         />
-        <main className="grid size-full grid-cols-[auto_1fr] py-10 overflow-hidden divide-x divide-x-gray-300">
-          <div className="py-6 flex min-w-40 flex-col items-center gap-6 border-y border-y-gray-300">
+        <main className="grid size-full grid-cols-[auto_1fr] overflow-hidden divide-x divide-x-gray-300">
+          <div className="max-h-full my-12 py-6 flex min-w-40 flex-col items-center gap-6 border-y border-y-gray-300 boxy-purple-shadow rounded-b-md">
             <h1 className="text-xl underline"><Link href="/" className="hover:text-purple-200">SimpleRAG</Link></h1>
             <LeftNav/>
           </div>
