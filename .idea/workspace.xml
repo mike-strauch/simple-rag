@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80a89abf-a638-4582-bc52-91027399e4cd" name="Changes" comment="- Creating separate pages in the app. One for conversing, another for documents, and a home page for describing the project&#10;- Adding a table of documents that get loaded from pinecone&#10;- Updating the LLM prompt so that if the supplied documents don't help answer the prompt them the lLM will indicate that it doesn't help.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/converse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/converse/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/documents/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/documents/page.tsx" afterDir="false" />
+    <list default="true" id="80a89abf-a638-4582-bc52-91027399e4cd" name="Changes" comment="- Upgrading tailwind to 4.1&#10;- Updating styling all around">
       <change beforePath="$PROJECT_DIR$/frontend/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/page.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ActionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ActionButton.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +134,7 @@
       <updated>1751320463883</updated>
       <workItem from="1751320465610" duration="19868000" />
       <workItem from="1751388892517" duration="8842000" />
-      <workItem from="1751481224325" duration="27233000" />
+      <workItem from="1751481224325" duration="28082000" />
     </task>
     <task id="LOCAL-00001" summary="- Setting up UI hooks&#10;- Adding axios&#10;- Adding service dependency injection&#10;- bunch of other stuff">
       <option name="closed" value="true" />
@@ -178,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751594468488</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- Upgrading tailwind to 4.1&#10;- Updating styling all around">
+      <option name="closed" value="true" />
+      <created>1751866893718</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1751866893718</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +198,8 @@
     <MESSAGE value="- Getting document indexing sort of working&#10;- Getting end to end requests working for submitting documents as well as submitting prompts (although prompts don't actually search yet)&#10;- Adding toastify" />
     <MESSAGE value="- Adding a &quot;conversation&quot; view to the UI&#10;- Fixing mismatch between embedding model and pinecone storage model&#10;- Getting the open ai api working with the docs submitted by the user.&#10;- Fixing a bunch of stuff." />
     <MESSAGE value="- Creating separate pages in the app. One for conversing, another for documents, and a home page for describing the project&#10;- Adding a table of documents that get loaded from pinecone&#10;- Updating the LLM prompt so that if the supplied documents don't help answer the prompt them the lLM will indicate that it doesn't help." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Creating separate pages in the app. One for conversing, another for documents, and a home page for describing the project&#10;- Adding a table of documents that get loaded from pinecone&#10;- Updating the LLM prompt so that if the supplied documents don't help answer the prompt them the lLM will indicate that it doesn't help." />
+    <MESSAGE value="- Upgrading tailwind to 4.1&#10;- Updating styling all around" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Upgrading tailwind to 4.1&#10;- Updating styling all around" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
