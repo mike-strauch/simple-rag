@@ -1,10 +1,42 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from 'axios';
 import {toast} from 'react-toastify';
+import SearchDocument from "@/types/SearchDocument";
 
-export const useDocuments = (): [boolean, []] => {
+export const useDocument = (id: string):[boolean, SearchDocument] => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [documents, setDocuments] = useState<[]>([]);
+  const [document, setDocument] = useState<SearchDocument>(new SearchDocument());
+
+  useEffect(() => {
+    const loadDocuments = async () => {
+      if(!id)
+        return;
+
+      try {
+        setLoading(true);
+        const response = await axios.get(`http://localhost:8000/api/documents/${id}`);
+
+        setLoading(false);
+        if (!response.data.success) {
+          toast.error(response.data.message);
+          return null;
+        }
+
+        setDocument(new SearchDocument(response.data.document));
+      } catch (e) {
+        setLoading(false);
+        toast.error('Unable to add document: ' + (e as Error).message);
+      }
+    }
+    loadDocuments().then(() => {});
+  },[id]);
+
+  return [loading, document];
+}
+
+export const useDocuments = (): [boolean, SearchDocument[]] => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [documents, setDocuments] = useState<SearchDocument[]>([]);
 
   useEffect(() => {
     const loadDocuments = async () => {
@@ -18,7 +50,7 @@ export const useDocuments = (): [boolean, []] => {
           return null;
         }
 
-        setDocuments(response.data.documents);
+        setDocuments(response.data.documents.map((doc: Partial<SearchDocument>) => new SearchDocument(doc)));
       } catch (e) {
         setLoading(false);
         toast.error('Unable to add document: ' + (e as Error).message);

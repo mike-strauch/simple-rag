@@ -30,7 +30,7 @@ export default function Converse() {
   }, [prompt, submitPrompt]);
 
   return (
-    <div className="flex flex-col gap-12 overflow-auto">
+    <div className="pt-12 flex flex-col gap-12 overflow-auto">
       <ConversationView conversation={conversation} />
       <form
         noValidate
@@ -61,7 +61,7 @@ export default function Converse() {
               onChange={(e) => setPrompt(e.target.value)}
               className="min-h-24 border rounded-b-md bg-gray-900 border-gray-500 p-2 focus:outline-1 focus:outline-gray-400 boxy-purple-shadow"
             ></textarea>
-            <div className="pt-2 text-center text-gray-400 text-lg">Type above to query your stored documents for relevant information.</div>
+            <div className="pt-2 text-center text-gray-200 text-lg">Enter a prompt above to query your stored documents for relevant information.</div>
           </div>
         </fieldset>
       </form>

@@ -41,6 +41,15 @@ class SearchService:
         global document_cache
         document_cache = []
 
+    def get_document(self, doc_id: str):
+        global document_cache
+        matching_document = next((doc for doc in document_cache if doc.id == doc_id), None)
+        if matching_document:
+            return matching_document
+
+        results = self.index.fetch(ids=[doc_id])
+        return results.vectors[doc_id]
+
     def get_documents(self):
         global document_cache
         if document_cache:
@@ -48,10 +57,11 @@ class SearchService:
 
         results = self.index.query(
             vector=[0.0] * MODEL_DIMENSONS,
-            top_k=100
+            top_k=100,
+            include_metadata=True
         )
 
-        document_cache = [match.id for match in results.matches]
+        document_cache = [match for match in results.matches]
         return document_cache
 
 
