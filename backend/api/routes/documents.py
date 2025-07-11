@@ -1,11 +1,11 @@
 from fastapi import APIRouter
 from schemas.document import Document
-from services.search_service import SearchService
+from services.document_service import DocumentService
 import random
 
 router = APIRouter(prefix="/api/documents", tags=["Documents"])
 
-def init_document_routes(search_service: SearchService):
+def init_document_routes(search_service: DocumentService):
     @router.get('/{id}')
     def get_document(id: str):
         document = search_service.get_document(id)

@@ -2,11 +2,11 @@
 from fastapi import APIRouter, HTTPException
 from schemas.search import Search
 from services.llm_service import LLMService
-from services.search_service import SearchService
+from services.document_service import DocumentService
 
 router = APIRouter(prefix="/api/search", tags=["Search"])
 
-def init_search_routes(llm_service: LLMService, search_service: SearchService):
+def init_search_routes(llm_service: LLMService, search_service: DocumentService):
     @router.post('/')
     def create_search(search: Search):
         if not search.prompt:

@@ -3,10 +3,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.routes import search, documents
 from services.llm_service import LLMService
-from services.search_service import SearchService
+from services.document_service import DocumentService
 
 
-search_service = SearchService()
+document_service = DocumentService()
 llm_service = LLMService()
 app = FastAPI()
 app.add_middleware(
@@ -17,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-document_router = documents.init_document_routes(search_service)
-search_router = search.init_search_routes(llm_service, search_service)
+document_router = documents.init_document_routes(document_service)
+search_router = search.init_search_routes(llm_service, document_service)
 app.include_router(search_router)
 app.include_router(document_router)

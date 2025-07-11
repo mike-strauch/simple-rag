@@ -12,7 +12,7 @@ MODEL_DIMENSONS = 1024
 document_cache = []
 
 # TODO: maybe rename eventually
-class SearchService:
+class DocumentService:
     def __init__(self):
         self.client = Pinecone(api_key=settings.pinecone_api_key)
         self.index = self.client.Index(settings.pinecone_index)
