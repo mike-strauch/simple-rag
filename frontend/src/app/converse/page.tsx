@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 import { useSubmitPrompt } from "@/hooks/Search.hooks";
 import { CgSpinner } from "react-icons/cg";
 import { motion } from "framer-motion";
@@ -16,7 +16,7 @@ export default function Converse() {
     if (textFieldRef.current) textFieldRef.current.focus();
   }, []);
 
-  const handleSubmitPrompt = useCallback(async (e) => {
+  const handleSubmitPrompt = useCallback(async (e: FormEvent | KeyboardEvent) => {
     e.preventDefault();
     const promptResult = await submitPrompt(prompt);
     if (promptResult) {
