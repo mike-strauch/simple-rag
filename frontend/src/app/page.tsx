@@ -14,8 +14,8 @@ export default function Home() {
           <div>
             <p>Under the hood, this system uses:</p>
             <ul className="px-5 py-1 list-disc space-y-1">
-              <li><Link href="https://www.pinecone.io/" className="text-purple-300 underline">Pinecone</Link> for generating and storing vector embeddings and for similarity search</li>
-              <li><Link href="https://openai.com/" className="text-purple-300 underline">OpenAI</Link> API (GPT-4) to generate conversational results</li>
+              <li><Link href="https://www.pinecone.io/" className="text-purple-300 underline">Pinecone</Link> for generating and storing vector embeddings and for similarity search.</li>
+              <li><Link href="https://openai.com/" className="text-purple-300 underline">OpenAI</Link> API (GPT-4) to generate conversational results.</li>
             </ul>
           </div>
         </div>

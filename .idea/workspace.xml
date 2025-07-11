@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80a89abf-a638-4582-bc52-91027399e4cd" name="Changes" comment="- Small styling change.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/documents/[id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/types/SearchDocument.ts" afterDir="false" />
+    <list default="true" id="80a89abf-a638-4582-bc52-91027399e4cd" name="Changes" comment="- Fixing styling of the document listing view&#10;- Adding the ability to view a document">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/routes/documents.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/routes/documents.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/search_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/search_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/converse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/converse/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/documents/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/documents/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/Document.hooks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/Document.hooks.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +135,7 @@
       <updated>1751320463883</updated>
       <workItem from="1751320465610" duration="19868000" />
       <workItem from="1751388892517" duration="8842000" />
-      <workItem from="1751481224325" duration="36796000" />
+      <workItem from="1751481224325" duration="39804000" />
     </task>
     <task id="LOCAL-00001" summary="- Setting up UI hooks&#10;- Adding axios&#10;- Adding service dependency injection&#10;- bunch of other stuff">
       <option name="closed" value="true" />
@@ -194,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751923901622</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Fixing styling of the document listing view&#10;- Adding the ability to view a document">
+      <option name="closed" value="true" />
+      <created>1751950516100</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1751950516100</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +217,8 @@
     <MESSAGE value="- Creating separate pages in the app. One for conversing, another for documents, and a home page for describing the project&#10;- Adding a table of documents that get loaded from pinecone&#10;- Updating the LLM prompt so that if the supplied documents don't help answer the prompt them the lLM will indicate that it doesn't help." />
     <MESSAGE value="- Upgrading tailwind to 4.1&#10;- Updating styling all around" />
     <MESSAGE value="- Small styling change." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Small styling change." />
+    <MESSAGE value="- Fixing styling of the document listing view&#10;- Adding the ability to view a document" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixing styling of the document listing view&#10;- Adding the ability to view a document" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
