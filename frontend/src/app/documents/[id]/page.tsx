@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function DocumentView() {
   const params = useParams();
-  const [docLoading, document] = useDocument(params.id + "");
+  const [, document] = useDocument(params.id + "");
 
   return (
     <div className="flex min-h-screen flex-col items-center gap-4 overflow-auto p-16">
