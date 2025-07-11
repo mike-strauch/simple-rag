@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80a89abf-a638-4582-bc52-91027399e4cd" name="Changes" comment="- Fixing styling of the document listing view&#10;- Adding the ability to view a document">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="80a89abf-a638-4582-bc52-91027399e4cd" name="Changes" comment="- Fixing compiler warning." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +133,7 @@
       <updated>1751320463883</updated>
       <workItem from="1751320465610" duration="19868000" />
       <workItem from="1751388892517" duration="8842000" />
-      <workItem from="1751481224325" duration="39804000" />
+      <workItem from="1751481224325" duration="40113000" />
     </task>
     <task id="LOCAL-00001" summary="- Setting up UI hooks&#10;- Adding axios&#10;- Adding service dependency injection&#10;- bunch of other stuff">
       <option name="closed" value="true" />
@@ -193,7 +191,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751950516100</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- Style tweak&#10;- Punctuation">
+      <option name="closed" value="true" />
+      <created>1752254700161</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1752254700161</updated>
+    </task>
+    <task id="LOCAL-00009" summary="- Fixing compiler warning.">
+      <option name="closed" value="true" />
+      <created>1752254800697</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1752254800697</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,13 +232,15 @@
     <MESSAGE value="- Upgrading tailwind to 4.1&#10;- Updating styling all around" />
     <MESSAGE value="- Small styling change." />
     <MESSAGE value="- Fixing styling of the document listing view&#10;- Adding the ability to view a document" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixing styling of the document listing view&#10;- Adding the ability to view a document" />
+    <MESSAGE value="- Style tweak&#10;- Punctuation" />
+    <MESSAGE value="- Fixing compiler warning." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixing compiler warning." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/rag$Run_Server.coverage" NAME="Run Server Coverage Results" MODIFIED="1751590127757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/rag$Run_Server.coverage" NAME="Run Server Coverage Results" MODIFIED="1752254491859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

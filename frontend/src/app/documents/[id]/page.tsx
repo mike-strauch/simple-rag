@@ -13,7 +13,7 @@ export default function DocumentView() {
       <Link href="/documents" className="pl-2 hover:text-purple-200">
         &lt; Back
       </Link>
-      <div className="flex min-h-[30%] w-[40%] min-w-96 flex-col gap-2 border border-gray-300 p-6 boxy-purple-shadow">
+      <div className="flex min-h-[30%] w-[40%] min-w-96 flex-col gap-2 border border-gray-300 p-6 rounded-b-md boxy-purple-shadow">
         <h1 className="text-3xl">Document Information</h1>
         <dl className="flex flex-col gap-4">
           <div>
